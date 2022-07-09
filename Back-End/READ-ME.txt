@@ -1,0 +1,4 @@
+Back-end Inicial do projeto Eventos-UFSJ
+Qualquer sugestão é bem vinda :)
+Arquivos do swagger:
+Swagger.json e Swagger.YAML

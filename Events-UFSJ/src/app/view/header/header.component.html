@@ -1,0 +1,37 @@
+<div id="navbar">
+    <div class="navigation-example">
+        <nav class="navbar navbar-expand-lg bg-primary">
+            <div class="container">
+                <a href="https://www.ufsj.edu.br/cpc/eventos.php" class="navbar-brand">UFSJ</a>
+                <button class="navbar-toggler navbar-toggler-right burger-menu" type="button" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-bar"></span>
+                            <span class="navbar-toggler-bar"></span>
+                            <span class="navbar-toggler-bar"></span>
+                        </button>
+                <div class="collapse navbar-collapse" id="navbar-primary">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/events']"><i class="nc-icon nc-compass-05" aria-hidden="true"></i>&nbsp;Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/events_create']"><i class="nc-icon nc-compass-05" aria-hidden="true"></i>&nbsp;Criar Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/editar']"><i class="nc-icon nc-compass-05" aria-hidden="true"></i>&nbsp;Editar Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <div ngbDropdown class="d-inline-block dropdown">
+                                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-single-02" aria-hidden="true"></i>&nbsp;Acessar</a>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-primary">
+                                    <a [routerLink]="['/profile']" class="dropdown-item">Perfil</a>
+                                    <a [routerLink]="['/signup']" class="dropdown-item">Cadastrar</a>
+                                    <a [routerLink]="['/login']" class="dropdown-item">Login</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

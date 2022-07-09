@@ -1,0 +1,19 @@
+<div class="meuback">
+    <app-header></app-header>
+    <div class="section section-dark">
+        <div class="container">
+            <ul>
+                <div *ngFor="let e of dados">
+                    <div class="row example-page">
+                        <div class="col-md-6 text-center" routerLinkActive="active">
+                            <a [routerLink]="['/home']">
+                                <img src="./assets/img/Event/Inverno.jpg" alt="Rounded Image" class="img-rounded img-responsive" style="width: 100%">
+                                <a [routerLink]="['/home']" class="btn btn-outline-neutral btn-round">{{e.title}}</a>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>

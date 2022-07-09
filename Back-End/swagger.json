@@ -1,0 +1,559 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Eventos UFSJ",
+    "description": "Aplicação de Eventos para a UFSJ"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Eventos",
+      "description": "`Tudo Sobre Eventos`"
+    },
+    {
+      "name": "Usuarios",
+      "description": "`Gerenciar Usuarios`"
+    },
+    {
+      "name": "Parcerias",
+      "description": "`Consultar Parcerias`"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Eventos"
+        ],
+        "summary": "Pagina home do Site de Eventos",
+        "operationId": "pagEvent",
+        "consumes": [
+          "aplication/json"
+        ],
+        "produces": [
+          "aplication/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Bem vindo a Pagina de Eventos, carreg os eventos disponiveis e suas informações",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Eventos"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Eventos"
+            }
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/events": {
+      "get": {
+        "tags": [
+          "Eventos"
+        ],
+        "summary": "Informar dados para criar um evento",
+        "operationId": "showData",
+        "consumes": [
+          "aplication/json"
+        ],
+        "produces": [
+          "aplication/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Adicione os dados sobre o evento",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Eventos"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Eventos"
+            }
+          },
+          "403": {
+            "description": "Acesso não permitido"
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/events/{id}": {
+      "get": {
+        "tags": [
+          "Eventos"
+        ],
+        "summary": "Busca por um evento especificado",
+        "operationId": "getEventId",
+        "produces": [
+          "aplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of Event return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessuful operation",
+            "schema": {
+              "$ref": "#/definitions/Eventos"
+            }
+          },
+          "400": {
+            "description": "Invalid Id request"
+          },
+          "404": {
+            "description": "Event not found"
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/events/create": {
+      "post": {
+        "tags": [
+          "Eventos"
+        ],
+        "summary": "Adiciona um evento na lista de eventos",
+        "operationId": "addEvent",
+        "consumes": [
+          "aplication/json"
+        ],
+        "produces": [
+          "aplication/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Evento adcionado com Sucesso",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Eventos"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Eventos"
+            }
+          },
+          "403": {
+            "description": "Acesso não Permitido"
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/events/update": {
+      "put": {
+        "tags": [
+          "Eventos"
+        ],
+        "summary": "Atualiza Eventos ",
+        "operationId": "updateEvent",
+        "produces": [
+          "aplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Update Event|",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Eventos"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessuful operation",
+            "schema": {
+              "$ref": "#/definitions/Eventos"
+            }
+          },
+          "400": {
+            "description": "Invalid Id request"
+          },
+          "403": {
+            "description": "Acesso não Permitido"
+          },
+          "404": {
+            "description": "Event not found"
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/events/delete": {
+      "delete": {
+        "tags": [
+          "Eventos"
+        ],
+        "summary": " Deleta Eventos",
+        "operationId": "deleteEvent",
+        "produces": [
+          "aplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Delete Event",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Eventos"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessuful operation",
+            "schema": {
+              "$ref": "#/definitions/Eventos"
+            }
+          },
+          "400": {
+            "description": "Invalid Id request"
+          },
+          "403": {
+            "description": "Acesso não Permitido"
+          },
+          "404": {
+            "description": "Event not found"
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Realizar Login",
+        "operationId": "loginUser",
+        "produces": [
+          "aplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Id of edit Event return",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Usuarios"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessuful operation",
+            "schema": {
+              "$ref": "#/definitions/Usuarios"
+            }
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/user/signup": {
+      "post": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Realizar Cadastro",
+        "operationId": "CadastraUser",
+        "produces": [
+          "aplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Id of edit Event return",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Usuarios"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessuful operation",
+            "schema": {
+              "$ref": "#/definitions/Usuarios"
+            }
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/events/join": {
+      "post": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Adiciona participantes ao evento",
+        "operationId": "joinEventId",
+        "produces": [
+          "aplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Id of edit Event return",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Usuarios"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessuful operation",
+            "schema": {
+              "$ref": "#/definitions/Usuarios"
+            }
+          },
+          "400": {
+            "description": "Invalid Id request"
+          },
+          "403": {
+            "description": "Acesso não Permitido"
+          },
+          "404": {
+            "description": "Event not found"
+          }
+        }
+      }
+    },
+    "/events/leave": {
+      "delete": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Retira participantes do evento",
+        "operationId": "leaveEventId",
+        "produces": [
+          "aplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Id of edit Event return",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Usuarios"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessuful operation",
+            "schema": {
+              "$ref": "#/definitions/Usuarios"
+            }
+          },
+          "400": {
+            "description": "Invalid Id request"
+          },
+          "403": {
+            "description": "Acesso não Permitido"
+          },
+          "404": {
+            "description": "Event not found"
+          }
+        }
+      }
+    },
+    "/partnerships/contact": {
+      "get": {
+        "tags": [
+          "Parcerias"
+        ],
+        "summary": "Mostra Apoiadores do evento",
+        "operationId": "contact",
+        "produces": [
+          "aplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "showApoiadores",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Contatos"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessuful operation",
+            "schema": {
+              "$ref": "#/definitions/Contatos"
+            }
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/partnerships/contact/{id}": {
+      "get": {
+        "tags": [
+          "Parcerias"
+        ],
+        "summary": "Mostra Apoiadores do evento",
+        "operationId": "contactId",
+        "produces": [
+          "aplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "showApoiadores",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessuful operation",
+            "schema": {
+              "$ref": "#/definitions/Contatos"
+            }
+          },
+          "400": {
+            "description": "Invalid Id request"
+          },
+          "404": {
+            "description": "partnership not found"
+          },
+          "500": {
+            "description": "Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Eventos": {
+      "type": "object",
+      "properties": {
+        "eventId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "items": {
+          "type": "string"
+        },
+        "Image": {
+          "type": "string"
+        }
+      }
+    },
+    "Usuarios": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "e-mail": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Contatos": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "e-mail": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

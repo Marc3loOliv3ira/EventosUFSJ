@@ -1,0 +1,18 @@
+<div class="meuback">
+    <app-header></app-header>
+    <div class="section section-dark">
+        <div class="container">
+            <ul>
+                <div *ngFor="let e of dados1">
+                    <div class="row example-page">
+                        <div class="col-md-6 text-center" routerLinkActive="active">
+                            <h1>{{e.title}}</h1>
+                            <img src="./assets/img/Event/Inverno.jpg" alt="Rounded Image" class="img-rounded img-responsive" style="width: 100%">
+                            <a [routerLink]="['/edit_event']" class="btn btn-outline-neutral btn-round">Editar</a><a (click)="excluir(e)" class="btn btn-outline-neutral btn-round">Deletar</a>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>

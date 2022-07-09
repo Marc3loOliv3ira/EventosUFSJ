@@ -1,0 +1,66 @@
+<div class="meuback">
+    <app-header></app-header>
+    <!-- <div class="tim-title">
+        <h3>Nome do Evento :</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Default">
+            </div>
+        </div>
+    </div> -->
+    <div id="event-create-container" class="col-md-6 offset-md-3">
+        <h1>Crie seu Evento</h1>
+        <form action="/events" #frm="ngForm" (ngSubmit)="adicionarEvento(frm)" method="POST" enctype="multipart/form-data">
+            <!-- <div class="form-group">
+                <label for="title">Imagem do Evento : </label>
+                <input type="file"  id="image" name="image" class="from-control-file">
+            </div> -->
+            <div class="form-group">
+                <label for="title">Titulo do Evento : </label>
+                <input type="text" name="title" id="title" class="form-control" placeholder="Nome do Evento" [(ngModel)]="c_events.title" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Data do Evento : </label>
+                <input type="date" name="date" id="date" class="form-control" [(ngModel)]="c_events.date" required>
+            </div>
+            <div class="form-group">
+                <label for="city">Cidade : </label>
+                <input type="text" required name="city" id="city" class="form-control" placeholder="Localização(Cidade)" [(ngModel)]="c_events.city">
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição: </label>
+                <textarea name="description" id="description" class="form-control" placeholder="O que vai acontecer no Evento?" [(ngModel)]="c_events.description" required></textarea>
+            </div>
+            <!-- <div class="form-group">
+                <label for="title">Adicione Itens de Infraestrutura: </label>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Cadeiras"> Cadeiras
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Palco"> Palco
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Cerveja_gratis"> Cerveja Gratis
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Open_food"> Open Food
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Brindes"> Brindes
+                </div>
+            </div> -->
+            <div class="form-group">
+                <label for="title">É privado? </label>
+                <select name="private" [(ngModel)]="c_events.private" required id="private" class="form-control">
+                    <option value=null></option>
+                    <option value="0"> Nao </option>
+                    <option value="1"> Sim </option>
+                </select>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary"> Criar Evento</button>
+        </form>
+    </div>
+</div>
